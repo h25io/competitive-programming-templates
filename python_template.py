@@ -56,15 +56,15 @@ class MergeFind(object):
         return yroot
         
 # Get a sorted list of primes up to uplimit (included).
-# Takes around 500ms for primes below 1M.
+# Takes around 50ms for primes below 1M.
 def generatePrimes(uplimit):
-    factors=[[] for i in range(uplimit+1)]
-    primes=[]
-    for i in range(2,uplimit+1):
+    factors=[0]*(uplimit+1)   
+    primes=[2] if uplimit>=2 else []
+    for i in range(3,uplimit+1,2): #on va passer en revue tous les impairs
         if not factors[i]:
             primes.append(i)
-            for j in range(i,uplimit+1,i):
-                factors[j].append(i)
+            for j in range(3*i,uplimit+1,i<<1):  #seuls les facteurs k*p avec p premier et k impair méritent d'être marqués
+                factors[j]=1
     return primes
 
 '''.-.-.   .-.-.   .-.-.   .-.-.   .-.-.   .-.-.   .-.-.   .-.-
