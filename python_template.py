@@ -8,17 +8,11 @@
 MOD = 10 ** 9 + 7
 MOD_EDU = 998244353  # Used in CodeForces educational rounds
 
-
 # TODO :
 ### Data structures
 # Graph/tree
 # Segment tree
 ### Algorithms
-# isPrime
-# getDivisors/getPrimeDivisors
-# Binary search
-# Iterative BFS/DFS
-# Matrix fastpow
 
 def iinput():
     return int(input())
@@ -234,6 +228,7 @@ def fastMatrixPow(m, p, mod=None):
 
 """ Misc section """
 
+# TO CHECK
 def binarySearch(predicate, lowerLimit = 0, upperLimit = 1e16, epsilon = 1e-8):
     flip = 0
     if predicate(upperLimit):
