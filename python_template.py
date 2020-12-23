@@ -113,7 +113,7 @@ def generatePrimes(uplimit):
     return primes
 
 def isPrime(n):
-    if n % 2 == 0 and n != 2:
+    if (n % 2 == 0 and n != 2) or n < 2:
         return False
     i = 3
     while i * i <= n:
@@ -129,7 +129,8 @@ def getDivisors(n):
         if n % d == 0:
             res.append(d)
             if d * d != n:
-                res.append(n / d)
+                res.append(n // d)
+        d += 1
     return res
 
 def getPrimeDivisors(n, primes=None):
